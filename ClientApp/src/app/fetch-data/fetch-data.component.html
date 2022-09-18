@@ -1,0 +1,32 @@
+<h4 id="tableLabel">Εφαρμογή Πελατολογίου</h4>
+
+<p *ngIf="!Customers"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="Customers">
+  <thead>
+    <tr>
+      <th>Όνομα</th>
+      <th>Επώνυμο</th>
+      <th>Τηλέφωνο</th>
+      <th>Διεύθυνση Κατοικίας</th>
+      <th>Email</th>
+      <th>
+        <a [routerLink]="" (click)="addcustomer()">Προσθήκη πελάτη</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cust of Customers">
+      <td>{{ cust.name }}</td>
+      <td>{{ cust.surname }}</td>
+      <td>{{ cust.phonenum }}</td>
+      <td>{{ cust.address }}</td>
+      <td>{{ cust.email }}</td>
+      <td>
+        <a [routerLink]="['../customer/edit/', cust.id]">Επεξ. </a>
+        |
+        <a [routerLink]="" (click)="delete(cust.id)">Διαγραφή</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
