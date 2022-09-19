@@ -11,7 +11,7 @@
       <th>Διεύθυνση Κατοικίας</th>
       <th>Email</th>
       <th>
-        <a [routerLink]="" (click)="addcustomer()">Προσθήκη πελάτη</a>
+        <a style="color: #0366d6; text-decoration: underline; cursor: pointer" [routerLink]="" (click)="addcustomer()">Προσθήκη πελάτη</a>
       </th>
     </tr>
   </thead>
@@ -25,7 +25,7 @@
       <td>
         <a [routerLink]="['../customer/edit/', cust.id]">Επεξ. </a>
         |
-        <a [routerLink]="" (click)="delete(cust.id)">Διαγραφή</a>
+        <a style="color:#0366d6; text-decoration:underline; cursor:pointer" [routerLink]="" (click)="delete(cust.id)">Διαγραφή</a>
       </td>
     </tr>
   </tbody>
