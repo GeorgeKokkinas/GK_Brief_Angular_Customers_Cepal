@@ -1,0 +1,49 @@
+<h1 id="tableLabel" style="font-size:20px">Εφαρμογή πελατολογίου</h1>
+
+<!--<p *ngIf="!Customers"><em>Loading...</em></p>-->
+
+<div >
+
+  <table mat-table [dataSource]="dataSource" class='table table-striped' matSort>
+    <!--*ngIf="Customers"-->
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Όνομα </th>
+      <td mat-cell *matCellDef="let cust"> {{cust.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="surname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Επώνυμο </th>
+      <td mat-cell *matCellDef="let cust"> {{cust.surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phonenum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Τηλέφωνο </th>
+      <td mat-cell *matCellDef="let cust"> {{cust.phonenum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Διεύθυνση Κατοικίας </th>
+      <td mat-cell *matCellDef="let cust"> {{cust.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let cust"> {{cust.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <a [routerLink]="['../register-customer']">Προσθήκη πελάτη</a> </th>
+      <td mat-cell *matCellDef="let cust">
+        <a [routerLink]="['../customer/edit/', cust.id]">Επεξ. </a>
+        |
+        <a style="color:#0366d6; text-decoration:underline; cursor:pointer" [routerLink]="" (click)="delete(cust.id)">Διαγραφή</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let cust; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator aria-label="Επιλογή σελίδας" [pageSizeOptions]=[10] showFirstLastButtons></mat-paginator>
+</div>
